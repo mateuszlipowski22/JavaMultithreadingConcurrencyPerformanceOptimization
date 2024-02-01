@@ -1,4 +1,4 @@
-package multithreading.section_3.exercise;
+package multithreading.section_2.exercise;
 
 import java.util.List;
 
