@@ -18,7 +18,7 @@ public class Main {
 
         long startTime = System.currentTimeMillis();
 
-        recolorSingleThreaded(originalImage,resultImage);
+//        recolorSingleThreaded(originalImage,resultImage);
 
         int numberOfThreads = 1;
         recolorMultithreaded(originalImage,resultImage,numberOfThreads);
@@ -74,7 +74,7 @@ public class Main {
         int newBlue;
 
         if (isShadeOfGray(red, green, blue)) {
-            newRed = Math.min(255, rgb + 10);
+            newRed = Math.min(255, red + 10);
             newGreen = Math.max(0, green - 80);
             newBlue = Math.max(0, blue - 20);
         } else {
@@ -93,9 +93,9 @@ public class Main {
     }
 
     public static void recolorImage(BufferedImage originalImage, BufferedImage resultImage, int leftCorner, int topCorner, int width, int height){
-        for(int x = leftCorner;x<leftCorner+width && x<originalImage.getWidth();x++){
-            for(int y = topCorner;x<topCorner+height && x<originalImage.getHeight();y++){
-                recolorPixel(originalImage,resultImage,x,y);
+        for(int x = leftCorner ; x < leftCorner + width && x < originalImage.getWidth() ; x++) {
+            for(int y = topCorner ; y < topCorner + height && y < originalImage.getHeight() ; y++) {
+                recolorPixel(originalImage, resultImage, x , y);
             }
         }
     }
@@ -105,7 +105,7 @@ public class Main {
     }
 
     public static boolean isShadeOfGray(int red, int green, int blue) {
-        return Math.abs(red - green) < 30 && Math.abs(red - blue) < 30 && Math.abs(blue - green) < 30;
+        return Math.abs(red - green) < 30 && Math.abs(red - blue) < 30 && Math.abs( green - blue) < 30;
     }
 
     public static int createRGBFromColors(int red, int green, int blue) {
@@ -117,7 +117,7 @@ public class Main {
 
         rgb |= 0xFF000000;
 
-        return red;
+        return rgb;
     }
 
     public static int getRed(int rgb) {
