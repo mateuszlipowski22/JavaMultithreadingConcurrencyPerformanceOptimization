@@ -43,3 +43,5 @@ build/
 /.idea/vcs.xml
 /out/many-flowers.jpg
 /.idea/inspectionProfiles/Project_Default.xml
+/out/matrices_results.txt
+/out/matrices
